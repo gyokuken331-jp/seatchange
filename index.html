@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="icon" href="img/icon.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="js/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>席替えツール</title>
+
+  <meta name="description" content="席替えを自動で作成できる無料Webツール。ランダム席替え、グループ分け、PDF出力、色弱対応の配色など、学校や職場で使える便利な席替えアプリです。">
+  <meta name="keywords" content="席替え, 席替えツール, 席替えアプリ, ランダム席替え, グループ分け, PDF席替え">
+  <meta property="og:title" content="席替えツール｜自動で席替え表を作成">
+  <meta property="og:description" content="席替えを自動で作成できる無料Webツール。PDF出力対応。">
+  <meta property="og:image" content="img/og.png">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <div id="app">
+
+    <div class="ad-top"></div>
+
+    <div class="bottom-area">
+
+      <div class="left-menu">
+
+        <div class="grid-config">
+          <label>縦：</label>
+          <input type="number" id="rows" min="1" max="10" value="5"><br>
+          <label>横：</label>
+          <input type="number" id="cols" min="1" max="10" value="5"><br>
+          <button id="updateGrid">更新</button>
+        </div>
+
+        <div class="mode-buttons">
+          <button id="modeUse">使用席配置</button><br>
+          <button id="modeErase">使用席取り消し</button><br>
+          <button id="modeRename">席名変更</button><br>
+          <button id="modeMove">場所変更</button><br>
+        </div>
+
+        <div class="group-area">
+          <label>グループ：</label>
+          <select id="groupSelect"></select><br>
+          <button id="addGroup">追加</button>
+          <button id="deleteGroup">削除</button>
+        </div>
+
+        <button id="shuffle">シャッフルする</button>
+
+        <div class="export-area">
+          <button id="exportCsv">CSV出力</button>
+          <input type="file" id="importCsv" accept=".csv">
+          <button id="exportPdf">PDF出力</button>
+        </div>
+
+        <div class="cpr">
+          <p>© 2026 SeatChange Tool</p>
+        </div>
+
+      </div>
+
+      <div class="right-seat">
+        <div id="seatGrid" class="seat-grid"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/seat.js"></script>
+
+  <div id="countdown" style="
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    color: red;
+    display: none;
+    z-index: 9999;
+  "></div>
+
+</body>
+</html>

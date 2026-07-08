@@ -1,0 +1,110 @@
+/* 画面全体を固定してスクロール禁止 */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* アプリ全体を縦に分割（広告＋下部エリア） */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 上部広告 */
+.ad-top {
+  width: 728px;
+  height: 90px;
+  background-color: rgb(163, 163, 163);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/* 下部レイアウト */
+.bottom-area {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 90px);
+  overflow: hidden;
+}
+
+/* 左メニュー（16%） */
+.left-menu {
+  width: 17%;
+  padding: 10px;
+  background-color: rgb(182, 182, 182);
+  color: white;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  display: flex;           /* ← 追加 */
+  flex-direction: column;  /* ← 縦並びにする */
+  justify-content: space-between; /* ← 上と下に分ける */
+}
+
+.cpr {
+  font-size: 10px;
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.7; /* 少し薄くして控えめに */
+}
+
+
+
+/* 右席表（80%） */
+.right-seat {
+  width: 83%;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 席表グリッド（レスポンシブ対応） */
+.seat-grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(var(--cols), minmax(40px, 1fr));
+  align-items: center;
+  justify-items: center;
+}
+
+/* 席の見た目（自動サイズ調整） */
+.seat {
+  width: 100%;
+  height: calc(100% * 0.8); /* 横幅の80%の高さにする */
+  border: 1px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: #f8f8f8;
+  border-radius: 4px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+/* 使用席 */
+.seat.used {
+  background-color: #f0e4c3;
+  border-color: #c9a86a;
+}
+
+/* 選択中のボタン */
+.mode-buttons button.active,
+.group-area button.active {
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  border: 2px solid #d4a000;
+}
+
+/* 場所変更で選択中の席 */
+.seat.selected {
+  border: 2px solid #ffcc00;
+}
