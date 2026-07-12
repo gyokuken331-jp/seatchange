@@ -17,7 +17,6 @@ html, body {
 .ad-top {
   width: 728px;
   height: 90px;
-  background-color: rgb(163, 163, 163);
   margin: 0 auto;
   flex-shrink: 0;
 }
