@@ -1,3 +1,12 @@
+.title {
+  font-size: 1px;     /* ほぼ見えないサイズ */
+  opacity: 0;         /* 完全に透明 */
+  height: 0;          /* 高さゼロ */
+  margin: 0;
+  padding: 0;
+}
+
+
 /* 画面全体を固定してスクロール禁止 */
 html, body {
   margin: 0;
