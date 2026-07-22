@@ -24,8 +24,6 @@ html, body {
 
 /* 上部広告 */
 .ad-top {
-  width: 728px;
-  height: 90px;
   margin: 0 auto;
   flex-shrink: 0;
 }
